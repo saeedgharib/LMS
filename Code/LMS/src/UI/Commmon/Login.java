@@ -1,4 +1,6 @@
-package UI;
+package UI.Commmon;
+
+import UI.Commmon.Register;
 
 /*
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
