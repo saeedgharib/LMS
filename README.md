@@ -2,7 +2,6 @@
 Learning Management System is a desktop application in java.  
 
 Group Members:
-
             Muhammad Saeed              SP21-BSE-071.
             Muhammad Umair              SP21-BSE-058.           
             Shahwaiz Iqbal              SP21-BSE-061.                        
