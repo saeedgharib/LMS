@@ -171,8 +171,8 @@ public class Register extends javax.swing.JFrame {
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         try{
-        String query="INSERT INTO `users`(`fname`, `lname`, `username`, `email`, `password`) VALUES (?,?,?,?,?)";
-        con1 =DriverManager.getConnection("jdbc:mysql://localhost/readit","root","");
+        String query="INSERT INTO 'users'(`fname`, `lname`, `username`, `email`, `password`) VALUES (?,?,?,?,?)";
+        con1 =DriverManager.getConnection("jdbc:sqlserver://;databaseName=ReadIT;", "sa","root");
         pstate=con1.prepareStatement(query);
         pstate.setString(1,fnameField.getText());
         pstate.setString(2,lnameField.getText());
@@ -232,6 +232,7 @@ public class Register extends javax.swing.JFrame {
             }
         });
     }
+    
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JTextField emailField;
