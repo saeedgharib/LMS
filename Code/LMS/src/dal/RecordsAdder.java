@@ -30,6 +30,7 @@ public class RecordsAdder {
             p.setString(4, objStudent.Email);
             p.setString(5, objStudent.Password);
             int rowsInserted = p.executeUpdate();
+          
             if(rowsInserted > 0){
                 objResponse.messagesList.add(new Message("Student added successfully.", MessageType.Information));
                 

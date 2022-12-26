@@ -13,6 +13,7 @@ import model.dto.StudentDTO;
 import model.dto.Message;
 import model.dto.MessageType;
 import model.dto.Response;
+import model.dto.User;
 
 /**
  *
@@ -24,13 +25,14 @@ public class DALManager {
     RecordsMapper objMapper;
     RecordsAdder objAdder;
     RecordsModifier objModifier;
-
+    Verifyer objVerify;
     public DALManager(RecordsMapper mapper){
     objConnection = new SQLConnection("//","LMS", "sa","root");
     objReader = new DBReader();
     objAdder = SMSFactory.getInstanceOfAdder();
     this.objMapper=mapper;
     objModifier = SMSFactory.getInstanceOfModifier();
+    objVerify = SMSFactory.getInstanceOfVerifyer();
     }
     public ArrayList<StudentDTO> getStudentsList(String searchKey) {
                 
@@ -64,6 +66,18 @@ public class DALManager {
         objResponse.messagesList.add(new Message(e.getMessage() + "\n Stack Track:\n"+e.getStackTrace(), MessageType.Exception));
         }
         return null;
+    }
+
+    public void AuthenticateUser(User objUser, Response objResponse) {
+        try{
+            Connection  dbConnection = objConnection.getConnection();
+            objVerify.Verify(objUser, objResponse, dbConnection);
+        }catch(Exception e){
+        objResponse.messagesList.add(new Message("Login Failed", MessageType.Error));
+        objResponse.messagesList.add(new Message(e.getMessage() + "\n"+e.getStackTrace(), MessageType.Exception));
+        }
+        
+        
     }
     
 }

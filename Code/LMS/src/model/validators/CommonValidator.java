@@ -11,6 +11,7 @@ import model.dto.Message;
 import model.dto.MessageType;
 import model.dto.Response;
 import UI.Commmon.Login;
+import model.dto.User;
 
 /**
  *
@@ -91,6 +92,15 @@ public class CommonValidator {
             objResponse.messagesList.add(msg);
         }
         
+    }
+
+    public static void validateUser(User objUser, Response objResponse) {
+        if(objUser.username==null || objUser.password==null){
+            Message msg =SMSFactory.getInstanceOfMessage();
+            msg.Message="Username or Password cannot be null";
+            msg.Type=MessageType.Error;
+            objResponse.messagesList.add(msg);
+        }
     }
     
 }

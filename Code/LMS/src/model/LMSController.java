@@ -9,6 +9,7 @@ import dal.DALManager;
 import java.util.ArrayList;
 import model.dto.StudentDTO;
 import model.dto.Response;
+import model.dto.User;
 import model.validators.CommonValidator;
 
 /**
@@ -37,6 +38,15 @@ public class LMSController {
     public Response deleteStudent(String selectedId) {
         Response objResponse = SMSFactory.getResponseInstance();
         objDAL.deleteStudent(selectedId, objResponse);
+        return objResponse;
+    }
+    
+    public Response Authenticate(User objUser) {
+        Response objResponse = SMSFactory.getResponseInstance();
+        CommonValidator.validateUser(objUser,objResponse);
+        if(objResponse.isSuccessfull()){
+            objDAL.AuthenticateUser(objUser,objResponse);
+        }
         return objResponse;
     }
 }

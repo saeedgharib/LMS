@@ -115,6 +115,7 @@ public class Register extends javax.swing.JFrame {
         jLabel6.setForeground(new java.awt.Color(255, 255, 255));
         jLabel6.setText("UserName");
 
+        usernameField.setBackground(new java.awt.Color(204, 204, 204,80));
         usernameField.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 usernameFieldActionPerformed(evt);
@@ -190,17 +191,7 @@ public class Register extends javax.swing.JFrame {
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
 //        try{
-//            
-//        String query="INSERT INTO Student(Fname, Lname, Username,Password, Email) VALUES (?,?,?,?,?);";
-//        con1 =DriverManager.getConnection("jdbc:sqlserver://localhost:1433;databaseName=LMS;trustServerCertificate=true;" ,"sa","root");
-//        pstate=con1.prepareStatement(query);
-//        pstate.setString(1,fnameField.getText());
-//        pstate.setString(2,lnameField.getText());
-//        pstate.setString(3,usernameField.getText());
-//        pstate.setString(4,passwordField.getText());
-//        pstate.setString(5,emailField.getText());
-//        pstate.executeUpdate();
-//        JOptionPane.showMessageDialog(null, "Registration successfull","LMS",1);
+
         
         
         
@@ -210,7 +201,6 @@ public class Register extends javax.swing.JFrame {
         objStudent.Username = usernameField.getText();
         objStudent.Email = emailField.getText();
         objStudent.Password = passwordField.getText();
-
         //objStudent.Title = jComboBox1.getSelectedItem().toString();
         
         
