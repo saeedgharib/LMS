@@ -1,4 +1,4 @@
-package Admin;
+package UI.AdminInterface;
 
 /*
  * To change this license header, choose License Headers in Project Properties.
@@ -10,13 +10,13 @@ package Admin;
  *
  * @author Shah Waiz Iqbal
  */
-public class Dashboard extends javax.swing.JFrame
+public class Dashboarda extends javax.swing.JFrame
 {
 
     /**
      * Creates new form Dashboard
      */
-    public Dashboard()
+    public Dashboarda()
     {
         initComponents();
     }
@@ -28,8 +28,7 @@ public class Dashboard extends javax.swing.JFrame
      */
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
-    private void initComponents()
-    {
+    private void initComponents() {
 
         jPanel1 = new javax.swing.JPanel();
         jButton1 = new javax.swing.JButton();
@@ -74,10 +73,8 @@ public class Dashboard extends javax.swing.JFrame
         jPanel2.setBackground(new java.awt.Color(0, 51, 51));
 
         jButton2.setText("Admin");
-        jButton2.addActionListener(new java.awt.event.ActionListener()
-        {
-            public void actionPerformed(java.awt.event.ActionEvent evt)
-            {
+        jButton2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton2ActionPerformed(evt);
             }
         });
@@ -175,17 +172,18 @@ public class Dashboard extends javax.swing.JFrame
             }
         } catch (ClassNotFoundException ex)
         {
-            java.util.logging.Logger.getLogger(Dashboard.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(Dashboarda.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex)
         {
-            java.util.logging.Logger.getLogger(Dashboard.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(Dashboarda.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex)
         {
-            java.util.logging.Logger.getLogger(Dashboard.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(Dashboarda.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex)
         {
-            java.util.logging.Logger.getLogger(Dashboard.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(Dashboarda.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
+        //</editor-fold>
         //</editor-fold>
 
         /* Create and display the form */
@@ -193,7 +191,7 @@ public class Dashboard extends javax.swing.JFrame
         {
             public void run()
             {
-                new Dashboard().setVisible(true);
+                new Dashboarda().setVisible(true);
             }
         });
     }
