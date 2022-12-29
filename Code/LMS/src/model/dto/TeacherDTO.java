@@ -9,5 +9,10 @@ package model.dto;
  * @author Mansoor
  */
 public class TeacherDTO {
-    
+       public String Id;
+    public String FirstName;
+    public String LastName;
+    public String Username;
+    public String Email;
+    public String Password;
 }

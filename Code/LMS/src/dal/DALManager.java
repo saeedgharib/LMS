@@ -13,6 +13,7 @@ import model.dto.StudentDTO;
 import model.dto.Message;
 import model.dto.MessageType;
 import model.dto.Response;
+import model.dto.TeacherDTO;
 import model.dto.User;
 
 /**
@@ -55,11 +56,31 @@ public class DALManager {
         objResponse.messagesList.add(new Message(e.getMessage() + "\n Stack Track:\n"+e.getStackTrace(), MessageType.Exception));
         }
     }
-
+public void saveTeacher(TeacherDTO objTeacher, Response objResponse) {
+        try{
+            Connection  dbConnection = objConnection.getConnection();
+            objAdder.saveTeacher(objTeacher,objResponse,dbConnection);            
+        }catch(Exception e){
+        objResponse.messagesList.add(new Message("Ooops! Failed to create employee, Please contact support that there an issue while saving new employee.", MessageType.Error));
+        objResponse.messagesList.add(new Message(e.getMessage() + "\n Stack Track:\n"+e.getStackTrace(), MessageType.Exception));
+        }
+    }
      public Response deleteStudent(String selectedId, Response objResponse) {
         try{
             Connection  dbConnection = objConnection.getConnection();
             objModifier.deleteStudent(selectedId,objResponse,dbConnection);
+            return  objResponse;           
+        }catch(Exception e){
+        objResponse.messagesList.add(new Message("Ooops! Failed to delete employee, Please contact support that there an issue while saving new employee.", MessageType.Error));
+        objResponse.messagesList.add(new Message(e.getMessage() + "\n Stack Track:\n"+e.getStackTrace(), MessageType.Exception));
+        }
+        return null;
+    }
+
+     public Response Approve(String selectedId, Response objResponse) {
+        try{
+            Connection  dbConnection = objConnection.getConnection();
+            objModifier.ApproveStudent(selectedId,objResponse,dbConnection);
             return  objResponse;           
         }catch(Exception e){
         objResponse.messagesList.add(new Message("Ooops! Failed to delete employee, Please contact support that there an issue while saving new employee.", MessageType.Error));
@@ -79,5 +100,7 @@ public class DALManager {
         
         
     }
+
+   
     
 }

@@ -1,7 +1,6 @@
 package UI.AdminInterface;
 
 
-import UI.AdminInterface.RmvStd;
 import Admin.AddStd;
 
 /*
@@ -78,7 +77,7 @@ public class StudentMod extends javax.swing.JFrame {
         jPanel3.setBorder(javax.swing.BorderFactory.createEtchedBorder(new java.awt.Color(204, 204, 204), null));
 
         jButton4.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        jButton4.setText("Approve Student ");
+        jButton4.setText("Manage Teachers");
         jButton4.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton4ActionPerformed(evt);
@@ -86,7 +85,7 @@ public class StudentMod extends javax.swing.JFrame {
         });
 
         jButton5.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        jButton5.setText("Remove Student");
+        jButton5.setText("Manage Students");
         jButton5.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton5ActionPerformed(evt);
@@ -169,8 +168,9 @@ public class StudentMod extends javax.swing.JFrame {
 
     private void jButton5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton5ActionPerformed
         // TODO add your handling code here:
-        RmvStd o2 = new RmvStd();
-        o2.setVisible(true);
+       
+        StudentMGUI objStd = new StudentMGUI(this);
+        objStd.setVisible(true);
         this.setVisible(false);
     }//GEN-LAST:event_jButton5ActionPerformed
 

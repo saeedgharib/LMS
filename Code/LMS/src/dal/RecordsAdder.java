@@ -13,6 +13,7 @@ import model.dto.StudentDTO;
 import model.dto.Message;
 import model.dto.MessageType;
 import model.dto.Response;
+import model.dto.TeacherDTO;
 
 /**
  *
@@ -40,6 +41,29 @@ public class RecordsAdder {
             }
         }catch(SQLException e){
             objResponse.messagesList.add(new Message("Ooops! Failed to add Student, Please contact support that there an issue while saving new employee.", MessageType.Error));
+            objResponse.messagesList.add(new Message(e.getMessage() + "\n Stack Track:\n"+e.getStackTrace(), MessageType.Exception));
+        }
+    }
+
+    void saveTeacher(TeacherDTO objTeacher, Response objResponse, Connection dbConnection) {
+       try{
+            PreparedStatement p = dbConnection.prepareStatement("INSERT INTO Teacher (Fname,Lname,Username,Email,Password) VALUES (?,?,?,?,?);");
+            p.setString(1, objTeacher.FirstName);
+            p.setString(2, objTeacher.LastName);
+            p.setString(3, objTeacher.Username);
+            p.setString(4, objTeacher.Email);
+            p.setString(5, objTeacher.Password);
+            int rowsInserted = p.executeUpdate();
+          
+            if(rowsInserted > 0){
+                objResponse.messagesList.add(new Message("Teacher Registered successfully.", MessageType.Information));
+                
+             
+                
+                
+            }
+        }catch(SQLException e){
+            objResponse.messagesList.add(new Message("Ooops! Failed to Register Teacher, Please contact support that there an issue while saving new employee.", MessageType.Error));
             objResponse.messagesList.add(new Message(e.getMessage() + "\n Stack Track:\n"+e.getStackTrace(), MessageType.Exception));
         }
     }
