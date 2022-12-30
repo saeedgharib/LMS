@@ -1,7 +1,7 @@
 package UI.AdminInterface;
 
 
-import UI.StudentInterface.Assignments;
+import UI.TeacherInterface.Assignments;
 
 /*
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
