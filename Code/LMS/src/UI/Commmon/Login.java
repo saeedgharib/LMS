@@ -12,7 +12,7 @@ import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import javax.swing.JOptionPane;
 import model.LMSController;
-import model.SMSFactory;
+import model.LMSFactory;
 import model.dto.Response;
 import model.dto.User;
 
@@ -29,7 +29,7 @@ import model.dto.User;
 public class Login extends javax.swing.JFrame {
 Connection con1=null;
        PreparedStatement pstate=null;
-       LMSController objController = SMSFactory.getInstanceOfLMSController();
+       LMSController objController = LMSFactory.getInstanceOfLMSController();
     
     public Login() {
         initComponents();

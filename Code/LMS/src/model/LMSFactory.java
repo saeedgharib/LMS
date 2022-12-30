@@ -18,7 +18,7 @@ import model.dto.Response;
  *
  * @author Mukhtiar
  */
-public class SMSFactory {
+public class LMSFactory {
 
     static DALManager getInstanceOfDALManager() {
         return new DALManager(new RecordsMapper());

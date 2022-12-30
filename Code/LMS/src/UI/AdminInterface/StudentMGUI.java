@@ -8,7 +8,7 @@ import javax.swing.JLabel;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 import model.LMSController;
-import model.SMSFactory;
+import model.LMSFactory;
 import model.dto.Response;
 
 /**
@@ -22,7 +22,7 @@ LMSController objController;
     StudentMGUI(StudentMod aThis) {
         initComponents();
         objMainUI = aThis;
-        objController = SMSFactory.getInstanceOfLMSController();
+        objController = LMSFactory.getInstanceOfLMSController();
         loadData();
     }
     
@@ -30,16 +30,16 @@ LMSController objController;
     private void PopulateDataFromDatabase(ArrayList<StudentDTO> list) {
         dtm = new DefaultTableModel();
         try {
-         
+            dtm.addColumn("Student_ID");
             dtm.addColumn("First Name");
             dtm.addColumn("Last Name");
         
             for(StudentDTO std : list)
             {
                 Object [] rowData = new Object[5];
-                rowData[0] = std.FirstName;
-                rowData[1] = std.LastName;
-                
+                rowData[0] = std.Id;
+                rowData[1] = std.FirstName;
+                rowData[2] = std.LastName;
                 dtm.addRow(rowData);
             }
             jTable1.setModel(dtm);

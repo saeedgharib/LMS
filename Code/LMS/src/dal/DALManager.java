@@ -8,7 +8,7 @@ package dal;
 import java.sql.Connection;
 import java.sql.ResultSet;
 import java.util.ArrayList;
-import model.SMSFactory;
+import model.LMSFactory;
 import model.dto.StudentDTO;
 import model.dto.Message;
 import model.dto.MessageType;
@@ -28,12 +28,12 @@ public class DALManager {
     RecordsModifier objModifier;
     Verifyer objVerify;
     public DALManager(RecordsMapper mapper){
-    objConnection = new SQLConnection("//","LMS", "sa","root");
+    objConnection = new SQLConnection("//","ReadIT", "sa","root");
     objReader = new DBReader();
-    objAdder = SMSFactory.getInstanceOfAdder();
+    objAdder = LMSFactory.getInstanceOfAdder();
     this.objMapper=mapper;
-    objModifier = SMSFactory.getInstanceOfModifier();
-    objVerify = SMSFactory.getInstanceOfVerifyer();
+    objModifier = LMSFactory.getInstanceOfModifier();
+    objVerify = LMSFactory.getInstanceOfVerifyer();
     }
     public ArrayList<StudentDTO> getStudentsList(String searchKey) {
                 

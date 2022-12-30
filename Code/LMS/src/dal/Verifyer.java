@@ -16,7 +16,7 @@ import model.dto.Response;
 import model.dto.User;
 import java.sql.ResultSet;
 import javax.swing.JOptionPane;
-import model.SMSFactory;
+import model.LMSFactory;
 /**
  *
  * @author Mansoor
@@ -39,7 +39,7 @@ public class Verifyer {
                                    ob.setVisible(true);  
                                }
                                else{
-                                   Message msg =SMSFactory.getInstanceOfMessage();
+                                   Message msg =LMSFactory.getInstanceOfMessage();
                                    msg.Message="Login Failed! \n Username or Password is incorrect";
                                    msg.Type=MessageType.Error;
                                    objResponse.messagesList.add(msg);
@@ -55,7 +55,7 @@ public class Verifyer {
                                    std.setVisible(true);  
                                }
                                else{
-                                   Message msg =SMSFactory.getInstanceOfMessage();
+                                   Message msg =LMSFactory.getInstanceOfMessage();
                                    msg.Message="Login Failed! \n Username or Password is incorrect";
                                    msg.Type=MessageType.Error;
                                    objResponse.messagesList.add(msg);
@@ -70,7 +70,7 @@ public class Verifyer {
                                    JOptionPane.showMessageDialog(null, "Screens not added yet");
                                }
                                else{
-                                   Message msg =SMSFactory.getInstanceOfMessage();
+                                   Message msg =LMSFactory.getInstanceOfMessage();
                                    msg.Message="Login Failed! \n Username or Password is incorrect";
                                    msg.Type=MessageType.Error;
                                    objResponse.messagesList.add(msg);
@@ -87,7 +87,7 @@ public class Verifyer {
 //            objResponse.messagesList.add(new Message("Login Failed:User", MessageType.Error));
 //            objResponse.messagesList.add(new Message(e.getMessage() + "\n Stack Track:\n"+e.getStackTrace(), MessageType.Exception));
             
-            Message msg =SMSFactory.getInstanceOfMessage();
+            Message msg =LMSFactory.getInstanceOfMessage();
             msg.Message="Login Failed! \n Username or Password is incorrect";
             msg.Type=MessageType.Error;
             objResponse.messagesList.add(msg);

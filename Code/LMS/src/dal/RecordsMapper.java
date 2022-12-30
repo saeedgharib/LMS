@@ -22,9 +22,9 @@ public class RecordsMapper {
             {
                 StudentDTO objStudent=new StudentDTO();                
 //                objStudent.Id=rs.getString(1);
-                objStudent.FirstName= rs.getString(1);
-                objStudent.LastName =rs.getString(2);
-                 
+                objStudent.Id= rs.getString(1);
+                objStudent.FirstName =rs.getString(2);
+                objStudent.LastName =rs.getString(3);
                 studentlist.add(objStudent);
             }
         }catch (Exception e){
