@@ -38,7 +38,7 @@
         </Property>
         <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
           <Border info="org.netbeans.modules.form.compat2.border.LineBorderInfo">
-            <LineBorder roundedCorners="true" thickness="4">
+            <LineBorder roundedCorners="true" thickness="6">
               <Color PropertyName="color" blue="0" green="cc" red="ff" type="rgb"/>
             </LineBorder>
           </Border>
@@ -70,7 +70,7 @@
                           <EmptySpace min="84" max="32767" attributes="0"/>
                       </Group>
                       <Group type="102" alignment="1" attributes="0">
-                          <EmptySpace pref="38" max="32767" attributes="0"/>
+                          <EmptySpace pref="36" max="32767" attributes="0"/>
                           <Component id="jRadioButton1" min="-2" pref="98" max="-2" attributes="0"/>
                           <EmptySpace min="-2" pref="45" max="-2" attributes="0"/>
                       </Group>
@@ -78,7 +78,7 @@
                   <Group type="103" groupAlignment="0" attributes="0">
                       <Group type="102" attributes="0">
                           <Group type="103" groupAlignment="0" attributes="0">
-                              <Component id="fnameField" alignment="0" pref="178" max="32767" attributes="0"/>
+                              <Component id="fnameField" alignment="0" pref="176" max="32767" attributes="0"/>
                               <Component id="lnameField" alignment="0" max="32767" attributes="0"/>
                               <Component id="passwordField" max="32767" attributes="0"/>
                               <Component id="emailField" max="32767" attributes="0"/>
@@ -379,7 +379,7 @@
     <Component class="javax.swing.JLabel" name="jLabel1">
       <Properties>
         <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-          <Image iconType="2" name="D:\Users\Mansoor\Downloads\3x\Asset 2@3x.png"/>
+          <Image iconType="3" name="/UI/Commmon/Asset 2@3x.png"/>
         </Property>
       </Properties>
       <Constraints>
