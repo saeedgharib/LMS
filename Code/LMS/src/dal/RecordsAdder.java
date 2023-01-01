@@ -9,6 +9,7 @@ import java.sql.Connection;
 import java.sql.Date;
 import java.sql.PreparedStatement;
 import java.sql.SQLException;
+import model.dto.Assignments;
 import model.dto.StudentDTO;
 import model.dto.Message;
 import model.dto.MessageType;
@@ -68,4 +69,25 @@ public class RecordsAdder {
         }
     }
 
+    void saveAssignment(Assignments objA, Response objResponse, Connection dbConnection) {
+        
+        try{
+            PreparedStatement p = dbConnection.prepareStatement("INSERT INTO Assignment(Assignment_ID,url,Course_ID) VALUES (?,?,?);");
+            p.setInt(1, 10);
+            p.setString(2,objA.URL);
+            p.setInt(3, 10);
+            int rowsInserted = p.executeUpdate();
+          
+            if(rowsInserted > 0){
+                objResponse.messagesList.add(new Message("task added successfully.", MessageType.Information));
+                
+             
+                
+                
+            }
+        }catch(SQLException e){
+            objResponse.messagesList.add(new Message("Ooops! Failed to add Task.", MessageType.Error));
+            objResponse.messagesList.add(new Message(e.getMessage() + "\n Stack Track:\n"+e.getStackTrace(), MessageType.Exception));
+        }
+    }
 }

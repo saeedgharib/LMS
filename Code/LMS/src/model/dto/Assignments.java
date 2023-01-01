@@ -11,7 +11,8 @@ import java.util.Date;
  * @author Mansoor
  */
 public class Assignments {
-    public byte[] file;
+    public String file;
     public Date uploadDate;
     public Date deadline;
+    public String URL;
 }

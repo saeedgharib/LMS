@@ -9,6 +9,7 @@ import java.sql.Connection;
 import java.sql.ResultSet;
 import java.util.ArrayList;
 import model.LMSFactory;
+import model.dto.Assignments;
 import model.dto.StudentDTO;
 import model.dto.Message;
 import model.dto.MessageType;
@@ -89,6 +90,15 @@ public void saveTeacher(TeacherDTO objTeacher, Response objResponse) {
         return null;
     }
 
+     public void saveAssignment(Assignments objA, Response objResponse) {
+        try{
+            Connection  dbConnection = objConnection.getConnection();
+            objAdder.saveAssignment(objA,objResponse,dbConnection);            
+        }catch(Exception e){
+        objResponse.messagesList.add(new Message("Ooops! Failed to generate Assignment", MessageType.Error));
+        objResponse.messagesList.add(new Message(e.getMessage() + "\n Stack Track:\n"+e.getStackTrace(), MessageType.Exception));
+        }
+    }
     public void AuthenticateUser(User objUser, Response objResponse) {
         try{
             Connection  dbConnection = objConnection.getConnection();

@@ -36,14 +36,16 @@ public class LMSController {
         }
         return objResponse;
     }
-//    public Response addAssignment(Assignments obj) {
-//        Response objResponse = SMSFactory.getResponseInstance();
-//        CommonValidator.validateStudent(obj,.objResponse);
-//        if(objResponse.isSuccessfull()){
-//            objDAL.saveStudent(objStudent,objResponse);
-//        }
-//        return objResponse;
-//    }
+
+   
+    public Response addAssignment(Assignments objA) {
+        Response objResponse = LMSFactory.getResponseInstance();
+        CommonValidator.validateAssignment(objA, objResponse);
+       if(objResponse.isSuccessfull()){
+            objDAL.saveAssignment(objA,objResponse);
+        }
+        return objResponse;
+    }
     public Response addTeacher(TeacherDTO objTeacher) {
         Response objResponse = LMSFactory.getResponseInstance();
         CommonValidator.validateTeacher(objTeacher,objResponse);

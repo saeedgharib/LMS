@@ -8,6 +8,7 @@ import model.dto.Message;
 import model.dto.MessageType;
 import model.dto.Response;
 import UI.Commmon.Login;
+import model.dto.Assignments;
 import model.dto.TeacherDTO;
 import model.dto.User;
 
@@ -102,4 +103,12 @@ public class CommonValidator {
         }
     }
     
+     public static void validateAssignment(Assignments objA, Response objResponse) {
+        if(objA.URL==null){
+            Message msg =LMSFactory.getInstanceOfMessage();
+            msg.Message="File Not Found";
+            msg.Type=MessageType.Error;
+            objResponse.messagesList.add(msg);
+        }
+    }
 }

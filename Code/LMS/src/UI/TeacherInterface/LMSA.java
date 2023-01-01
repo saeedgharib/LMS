@@ -2,6 +2,8 @@ package UI;
 
 import UI.AdminInterface.SearchStudent;
 import UI.TeacherInterface.AssignmentsUI;
+import model.LMSController;
+import model.LMSFactory;
 
 /*
  * To change this license header, choose License Headers in Project Properties.
@@ -14,7 +16,7 @@ import UI.TeacherInterface.AssignmentsUI;
  * @author Umair Ali
  */
 public class LMSA extends javax.swing.JFrame {
-
+       LMSController objController = LMSFactory.getInstanceOfLMSController();
     /**
      * Creates new form LMSA
      */
@@ -181,7 +183,7 @@ public class LMSA extends javax.swing.JFrame {
 
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
         // TODO add your handling code here:
-        AssignmentsUI obj =new AssignmentsUI();
+        AssignmentsUI obj =new AssignmentsUI(objController);
         obj.setVisible(true);
         this.setVisible(false);
     }//GEN-LAST:event_jButton3ActionPerformed

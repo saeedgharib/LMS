@@ -33,7 +33,11 @@ String fileName=null;
     /**
      * Creates new form Assignments
      */
-    public AssignmentsUI() {
+    public AssignmentsUI(LMSController oController) {
+        
+        
+        this.objController = oController;
+   
         initComponents();
     }
 
@@ -51,10 +55,10 @@ String fileName=null;
         jButton1 = new javax.swing.JButton();
         jButton2 = new javax.swing.JButton();
         jLabel4 = new javax.swing.JLabel();
+        jLabel5 = new javax.swing.JLabel();
         jScrollPane1 = new javax.swing.JScrollPane();
         jTextArea1 = new javax.swing.JTextArea();
         jLabel3 = new javax.swing.JLabel();
-        jLabel5 = new javax.swing.JLabel();
         jLabel1 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -105,6 +109,10 @@ String fileName=null;
         jLabel4.setForeground(new java.awt.Color(255, 255, 255));
         getContentPane().add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 450, 220, 30));
 
+        jLabel5.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        jLabel5.setForeground(new java.awt.Color(255, 255, 255));
+        getContentPane().add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 130, 1040, 60));
+
         jTextArea1.setColumns(20);
         jTextArea1.setRows(5);
         jScrollPane1.setViewportView(jTextArea1);
@@ -115,10 +123,6 @@ String fileName=null;
         jLabel3.setForeground(new java.awt.Color(255, 255, 255));
         jLabel3.setText("Description");
         getContentPane().add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 220, 80, -1));
-
-        jLabel5.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        jLabel5.setForeground(new java.awt.Color(255, 255, 255));
-        getContentPane().add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(580, 410, 460, 30));
 
         jLabel1.setIcon(new javax.swing.ImageIcon("D:\\Users\\Mansoor\\Downloads\\blue.jpg")); // NOI18N
         getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1070, 600));
@@ -155,10 +159,10 @@ String fileName=null;
         Assignments obj = new Assignments();
         SimpleDateFormat sdf =new SimpleDateFormat("dd-MM-yyyy");
        
-        obj.file=jLabel4.getText().getBytes();
+        obj.URL=jLabel4.getText();
 //        obj.uploadDate=ld;
-//        Response objResponse = objController.addAssignment(obj);
-//        CommonHandler.handleResponse(objResponse,jLabel5);
+        Response objResponse = objController.addAssignment(obj);
+        CommonHandler.handleResponse(objResponse,jLabel5);
         
     }//GEN-LAST:event_jButton1ActionPerformed
 
@@ -193,7 +197,7 @@ String fileName=null;
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new AssignmentsUI().setVisible(true);
+                //new AssignmentsUI().setVisible(true);
             }
         });
     }
