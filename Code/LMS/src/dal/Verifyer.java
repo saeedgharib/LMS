@@ -7,6 +7,7 @@ package dal;
 import UI.AdminInterface.StudentMod;
 import UI.Commmon.Login;
 import UI.LMSA;
+import UI.StudentInterface.StudentDashboard;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.SQLException;
@@ -67,7 +68,8 @@ public class Verifyer {
                                p.setString(2, objUser.password);
                                ResultSet rs =p.executeQuery();
                                if(rs.next()){
-                                   JOptionPane.showMessageDialog(null, "Screens not added yet");
+                                   StudentDashboard ob2 =new StudentDashboard();
+                                   ob2.setVisible(true);
                                }
                                else{
                                    Message msg =LMSFactory.getInstanceOfMessage();
