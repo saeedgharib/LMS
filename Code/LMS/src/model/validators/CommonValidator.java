@@ -9,6 +9,7 @@ import model.dto.MessageType;
 import model.dto.Response;
 import UI.Commmon.Login;
 import model.dto.Assignments;
+import model.dto.ContentDTO;
 import model.dto.TeacherDTO;
 import model.dto.User;
 
@@ -111,4 +112,13 @@ public class CommonValidator {
             objResponse.messagesList.add(msg);
         }
     }
+      public static void validateContent(ContentDTO obj, Response objResponse) {
+        if(obj.Description==null){
+            //objResponse.messagesList.add(new Message("FIrst Name is not valid, Provide valid first name with at least 3 characters.",MessageType.Error));
+                
+            Message msg =LMSFactory.getInstanceOfMessage();
+            msg.Message="\"FIrst Name is not valid, Provide valid first name with at least 3 characters.\"";
+            msg.Type=MessageType.Error;
+            objResponse.messagesList.add(msg);
+        }}
 }

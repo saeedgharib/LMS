@@ -13,10 +13,7 @@ import model.dto.Response;
 import java.sql.ResultSet;
 import model.dto.StudentDTO;
 
-/**
- *
- * @author Mukhtiar-HPC
- */
+
 public class RecordsModifier {
 
     void deleteStudent(String selectedId, Response objResponse, Connection dbConnection) {

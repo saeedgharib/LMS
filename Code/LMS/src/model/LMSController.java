@@ -8,6 +8,7 @@ package model;
 import dal.DALManager;
 import java.util.ArrayList;
 import model.dto.Assignments;
+import model.dto.ContentDTO;
 import model.dto.StudentDTO;
 import model.dto.Response;
 import model.dto.TeacherDTO;
@@ -77,6 +78,15 @@ public class LMSController {
       
             objDAL.Approve(selectedId,objResponse);
        
+        return objResponse;
+    }
+    
+    public Response addContent(ContentDTO obj) {
+        Response objResponse = LMSFactory.getResponseInstance();
+        CommonValidator.validateContent(obj, objResponse);
+       if(objResponse.isSuccessfull()){
+            objDAL.saveContent(obj,objResponse);
+        }
         return objResponse;
     }
     

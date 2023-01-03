@@ -10,6 +10,7 @@ import java.sql.Date;
 import java.sql.PreparedStatement;
 import java.sql.SQLException;
 import model.dto.Assignments;
+import model.dto.ContentDTO;
 import model.dto.StudentDTO;
 import model.dto.Message;
 import model.dto.MessageType;
@@ -80,6 +81,29 @@ public class RecordsAdder {
           
             if(rowsInserted > 0){
                 objResponse.messagesList.add(new Message("task added successfully.", MessageType.Information));
+                
+             
+                
+                
+            }
+        }catch(SQLException e){
+            objResponse.messagesList.add(new Message("Ooops! Failed to add Task.", MessageType.Error));
+            objResponse.messagesList.add(new Message(e.getMessage() + "\n Stack Track:\n"+e.getStackTrace(), MessageType.Exception));
+        }
+    }
+    
+    
+    void saveContent(ContentDTO obj, Response objResponse, Connection dbConnection) {
+        
+        try{
+            PreparedStatement p = dbConnection.prepareStatement("INSERT INTO Content(Content_ID,Course_ID,pdf_lecture_description) VALUES (?,?,?);");
+            p.setInt(1, 17);
+            p.setInt(2,10);
+            p.setString(3, obj.Description);
+            int rowsInserted = p.executeUpdate();
+          
+            if(rowsInserted > 0){
+                objResponse.messagesList.add(new Message("Content uploaded successfully.", MessageType.Information));
                 
              
                 

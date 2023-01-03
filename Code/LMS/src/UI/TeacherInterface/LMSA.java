@@ -1,5 +1,6 @@
 package UI;
 
+import UI.AdminInterface.ContentUI;
 import UI.AdminInterface.SearchStudent;
 import UI.TeacherInterface.AssignmentsUI;
 import model.LMSController;
@@ -162,7 +163,7 @@ public class LMSA extends javax.swing.JFrame {
 
     private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
         // TODO add your handling code here:
-        ContentUploadFrame ob1 = new ContentUploadFrame();
+        ContentUI ob1 = new ContentUI(objController);
         ob1.setVisible(true);
         this.setVisible(false);
         dispose();
