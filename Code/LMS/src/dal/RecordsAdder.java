@@ -67,5 +67,43 @@ public class RecordsAdder {
             objResponse.messagesList.add(new Message(e.getMessage() + "\n Stack Track:\n"+e.getStackTrace(), MessageType.Exception));
         }
     }
+    
+    void saveStudentdetails(StudentDTO objStudent, Response objResponse, Connection dbConnection) {
+        
+        try{
+            PreparedStatement p = dbConnection.prepareStatement("INSERT INTO Student (Fname,Lname,Username,Email,Password,DateOfBirth,City,Address,FatherName,FatherPhoneNo,pic,photopath,gender,Student_ID) VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?,?);");
+            p.setString(1, objStudent.FirstName);
+            p.setString(2, objStudent.LastName);
+            p.setString(3, objStudent.Username);
+            p.setString(4, objStudent.Email);
+            p.setString(5, objStudent.Password);
+            p.setString(6, objStudent.DateofBirth);
+            p.setString(7, objStudent.City);
+            p.setString(8, objStudent.Address);
+            p.setString(9, objStudent.FatherName);
+            p.setString(10, objStudent.FatherPhoneNo);
+            p.setBytes(11, objStudent.pic);
+            p.setString(12, objStudent.photopath);
+            p.setString(13, objStudent.gender);
+            p.setInt(14, 19);
+            
+            
+            
+            
+            
+            int rowsInserted = p.executeUpdate();
+          
+            if(rowsInserted > 0){
+                objResponse.messagesList.add(new Message("Student added successfully.", MessageType.Information));
+                
+             
+                
+                
+            }
+        }catch(SQLException e){
+            objResponse.messagesList.add(new Message("Ooops! Failed to add Student, Please contact support that there an issue while saving new employee.", MessageType.Error));
+            objResponse.messagesList.add(new Message(e.getMessage() + "\n Stack Track:\n"+e.getStackTrace(), MessageType.Exception));
+        }
+    }
 
 }

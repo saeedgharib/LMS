@@ -8,7 +8,7 @@ package dal;
 import java.sql.Connection;
 import java.sql.ResultSet;
 import java.util.ArrayList;
-import model.SMSFactory;
+import model.LMSFactory;
 import model.dto.StudentDTO;
 import model.dto.Message;
 import model.dto.MessageType;
@@ -30,10 +30,10 @@ public class DALManager {
     public DALManager(RecordsMapper mapper){
     objConnection = new SQLConnection("//","LMS", "sa","root");
     objReader = new DBReader();
-    objAdder = SMSFactory.getInstanceOfAdder();
+    objAdder = LMSFactory.getInstanceOfAdder();
     this.objMapper=mapper;
-    objModifier = SMSFactory.getInstanceOfModifier();
-    objVerify = SMSFactory.getInstanceOfVerifyer();
+    objModifier = LMSFactory.getInstanceOfModifier();
+    objVerify = LMSFactory.getInstanceOfVerifyer();
     }
     public ArrayList<StudentDTO> getStudentsList(String searchKey) {
                 
@@ -101,6 +101,14 @@ public void saveTeacher(TeacherDTO objTeacher, Response objResponse) {
         
     }
 
-   
+   public void saveStudentdetails(StudentDTO objEmp, Response objResponse) {
+        try{
+            Connection  dbConnection = objConnection.getConnection();
+            objAdder.saveStudentdetails(objEmp,objResponse,dbConnection);            
+        }catch(Exception e){
+        objResponse.messagesList.add(new Message("Ooops! Failed to create employee, Please contact support that there an issue while saving new employee.", MessageType.Error));
+        objResponse.messagesList.add(new Message(e.getMessage() + "\n Stack Track:\n"+e.getStackTrace(), MessageType.Exception));
+        }
+    }
     
 }

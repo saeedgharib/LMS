@@ -20,6 +20,13 @@ public class StudentDTO {
     public String Username;
     public String Email;
     public String Password;
-    
+    public String DateofBirth;
+    public String Address;
+    public String City;
+    public String gender;
+    public String FatherPhoneNo;
+    public String FatherName;
+    public byte[] pic;
+    public String  photopath;
    
 }

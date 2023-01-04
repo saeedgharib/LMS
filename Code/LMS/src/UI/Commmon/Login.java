@@ -12,7 +12,7 @@ import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import javax.swing.JOptionPane;
 import model.LMSController;
-import model.SMSFactory;
+import model.LMSFactory;
 import model.dto.Response;
 import model.dto.User;
 
@@ -29,7 +29,7 @@ import model.dto.User;
 public class Login extends javax.swing.JFrame {
 Connection con1=null;
        PreparedStatement pstate=null;
-       LMSController objController = SMSFactory.getInstanceOfLMSController();
+       LMSController objController = LMSFactory.getInstanceOfLMSController();
     
     public Login() {
         initComponents();
@@ -200,7 +200,6 @@ Connection con1=null;
         getContentPane().add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, -4, 1070, 120));
 
         jLabel1.setBackground(new java.awt.Color(153, 153, 153));
-        jLabel1.setIcon(new javax.swing.ImageIcon("D:\\Users\\Mansoor\\Downloads\\3x\\Asset 2@3x.png")); // NOI18N
         jLabel1.setPreferredSize(new java.awt.Dimension(1920, 1080));
         getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1070, 600));
 

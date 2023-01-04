@@ -8,7 +8,7 @@ import javax.swing.JLabel;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 import model.LMSController;
-import model.SMSFactory;
+import model.LMSFactory;
 import model.dto.Response;
 
 /**
@@ -22,7 +22,7 @@ LMSController objController;
     StudentMGUI(StudentMod aThis) {
         initComponents();
         objMainUI = aThis;
-        objController = SMSFactory.getInstanceOfLMSController();
+        objController = LMSFactory.getInstanceOfLMSController();
         loadData();
     }
     
@@ -30,16 +30,16 @@ LMSController objController;
     private void PopulateDataFromDatabase(ArrayList<StudentDTO> list) {
         dtm = new DefaultTableModel();
         try {
-         
+            dtm.addColumn("Student_ID");
             dtm.addColumn("First Name");
             dtm.addColumn("Last Name");
         
             for(StudentDTO std : list)
             {
                 Object [] rowData = new Object[5];
-                rowData[0] = std.FirstName;
-                rowData[1] = std.LastName;
-                
+                rowData[0] = std.Id;
+                rowData[1] = std.FirstName;
+                rowData[2] = std.LastName;
                 dtm.addRow(rowData);
             }
             jTable1.setModel(dtm);
@@ -176,7 +176,6 @@ LMSController objController;
         jLabel1.setText("jLabel1");
         jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 540, 930, 40));
 
-        jLabel3.setIcon(new javax.swing.ImageIcon("D:\\Users\\Mansoor\\Downloads\\blue.jpg")); // NOI18N
         jLabel3.setPreferredSize(new java.awt.Dimension(1000, 720));
         jPanel1.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(-150, -130, 1140, 810));
 
@@ -184,19 +183,23 @@ LMSController objController;
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, 1000, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 950, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 50, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 676, javax.swing.GroupLayout.PREFERRED_SIZE)
+            .addGroup(layout.createSequentialGroup()
+                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 617, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 59, Short.MAX_VALUE))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-//        new AddEmployeeUI(this,objController).setVisible(true);
-//        this.setVisible(false);        
+        new AddStudentUI(this,objController).setVisible(true);
+        this.setVisible(false);        
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
