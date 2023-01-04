@@ -1,5 +1,5 @@
+create database LMS;
 
-use lms;
 CREATE TABLE login (
   Username varchar(30) NOT NULL, 
   Password varchar(30),
@@ -72,13 +72,26 @@ CREATE TABLE Quiz (
   Foreign Key(Course_ID) references Course(Course_ID)
 );
 
+
+CREATE TABLE Assignment (
+  Assignment_ID int NOT NULL,
+  Course_ID int NOT NULL,
+  Description varchar(200),
+  Upload_date date,
+  Deadline date,
+  url varchar(100),
+  PRIMARY KEY (Assignment_ID) ,
+  Foreign Key(Course_ID) references Course(Course_ID)
+);
+
 INSERT INTO login
 VALUES('Shahwaiz','abc123');
 INSERT INTO login
 VALUES('kashif','password');
 
 
-
+Insert into Course
+values(10,'DLD','Electronics');
 INSERT INTO Student
 VALUES(10,'Muhammad','Saeed','saeed123','root','maliksaeed54321@gmail.com',23);
 INSERT INTO Student

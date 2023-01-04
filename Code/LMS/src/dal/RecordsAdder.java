@@ -72,9 +72,9 @@ public class RecordsAdder {
     void saveAssignment(Assignments objA, Response objResponse, Connection dbConnection) {
         
         try{
-            PreparedStatement p = dbConnection.prepareStatement("INSERT INTO Assignment(Assignment_ID,url,Course_ID) VALUES (?,?,?);");
-            p.setInt(1, 10);
-            p.setString(2,objA.URL);
+            PreparedStatement p = dbConnection.prepareStatement("INSERT INTO Assignment(Assignment_ID,Description,Course_ID) VALUES (?,?,?);");
+            p.setInt(1, 18);
+            p.setString(2,objA.Description);
             p.setInt(3, 10);
             int rowsInserted = p.executeUpdate();
           

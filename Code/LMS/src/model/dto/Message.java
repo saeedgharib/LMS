@@ -4,10 +4,7 @@
  */
 package model.dto;
 
-/**
- *
- * @author Mukhtiar-HPC
- */
+
 public class Message {
     public String Message;
     public MessageType Type;

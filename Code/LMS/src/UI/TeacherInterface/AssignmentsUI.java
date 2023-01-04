@@ -159,7 +159,7 @@ String fileName=null;
         Assignments obj = new Assignments();
         SimpleDateFormat sdf =new SimpleDateFormat("dd-MM-yyyy");
        
-        obj.URL=jLabel4.getText();
+        obj.Description=jLabel4.getText();
 //        obj.uploadDate=ld;
         Response objResponse = objController.addAssignment(obj);
         CommonHandler.handleResponse(objResponse,jLabel5);

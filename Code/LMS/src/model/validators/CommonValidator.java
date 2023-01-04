@@ -104,7 +104,7 @@ public class CommonValidator {
     }
     
      public static void validateAssignment(Assignments objA, Response objResponse) {
-        if(objA.URL==null){
+        if(objA.Description==null){
             Message msg =LMSFactory.getInstanceOfMessage();
             msg.Message="File Not Found";
             msg.Type=MessageType.Error;

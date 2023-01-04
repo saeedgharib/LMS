@@ -29,7 +29,7 @@ public class DALManager {
     RecordsModifier objModifier;
     Verifyer objVerify;
     public DALManager(RecordsMapper mapper){
-    objConnection = new SQLConnection("//","ReadIT", "sa","root");
+    objConnection = new SQLConnection("jdbc:sqlserver://DESKTOP-39KBTB2;databaseName=LMS","LMS", "sa","root");
     objReader = new DBReader();
     objAdder = LMSFactory.getInstanceOfAdder();
     this.objMapper=mapper;

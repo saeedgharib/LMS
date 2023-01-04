@@ -3,13 +3,11 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/C:/OOSE%20PROJECT/LMS/Code/LMS/src/dal/DALManager.java</file>
-            <file>file:/C:/OOSE%20PROJECT/LMS/Code/LMS/src/dal/RecordsAdder.java</file>
-            <file>file:/C:/OOSE%20PROJECT/LMS/Code/LMS/src/UI/TeacherInterface/AssignmentsUI.java</file>
-            <file>file:/C:/OOSE%20PROJECT/LMS/Code/LMS/src/model/dto/Assignments.java</file>
-            <file>file:/C:/OOSE%20PROJECT/LMS/Code/LMS/src/model/validators/CommonValidator.java</file>
-            <file>file:/C:/OOSE%20PROJECT/LMS/Code/LMS/src/UI/Commmon/Login.java</file>
-            <file>file:/C:/OOSE%20PROJECT/LMS/Code/LMS/src/model/LMSController.java</file>
+            <file>file:/C:/Users/TOSHIBA/Documents/GitHub/LMS/Code/LMS/src/UI/TeacherInterface/AssignmentsUI.java</file>
+            <file>file:/C:/Users/TOSHIBA/Documents/GitHub/LMS/Code/LMS/src/UI/Commmon/Login.java</file>
+            <file>file:/C:/Users/TOSHIBA/Documents/GitHub/LMS/Code/LMS/src/model/validators/CommonValidator.java</file>
+            <file>file:/C:/Users/TOSHIBA/Documents/GitHub/LMS/Code/LMS/src/dal/DALManager.java</file>
+            <file>file:/C:/Users/TOSHIBA/Documents/GitHub/LMS/Code/LMS/src/model/LMSController.java</file>
         </group>
     </open-files>
 </project-private>

@@ -61,7 +61,6 @@ Connection con1=null;
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Login Page");
         setMinimumSize(new java.awt.Dimension(1070, 636));
-        setPreferredSize(new java.awt.Dimension(1070, 620));
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jPanel1.setBackground(new java.awt.Color(0, 0, 0,50));
@@ -200,7 +199,7 @@ Connection con1=null;
         getContentPane().add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, -4, 1070, 120));
 
         jLabel1.setBackground(new java.awt.Color(153, 153, 153));
-        jLabel1.setIcon(new javax.swing.ImageIcon("C:\\OOSE PROJECT\\LMS\\Code\\Asset 2@3x.png")); // NOI18N
+        jLabel1.setIcon(new javax.swing.ImageIcon("C:\\Users\\TOSHIBA\\Documents\\GitHub\\LMS\\Code\\LMS\\src\\UI\\Commmon\\Asset 2@3x.png")); // NOI18N
         jLabel1.setPreferredSize(new java.awt.Dimension(1920, 1080));
         getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1070, 600));
 

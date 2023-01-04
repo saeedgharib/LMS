@@ -12,7 +12,5 @@ import java.util.Date;
  */
 public class Assignments {
     public String file;
-    public Date uploadDate;
-    public Date deadline;
-    public String URL;
+    public String Description;
 }
