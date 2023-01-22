@@ -26,5 +26,25 @@ public class DBReader {
         }
         return null;
     }
+    ResultSet getStats(String dblQuery,Connection conn) {
+        try {
+            Statement statement = conn.createStatement();
+            return statement.executeQuery(dblQuery);            
+        }
+        catch (Exception e) {
+            System.out.println("Error Trace in getRecords() : " + e.getMessage());
+        }
+        return null;
+    }
     
+    ResultSet getQuizStats(String dblQuery,Connection conn) {
+        try {
+            Statement statement = conn.createStatement();
+            return statement.executeQuery(dblQuery);            
+        }
+        catch (Exception e) {
+            System.out.println("Error Trace in getRecords() : " + e.getMessage());
+        }
+        return null;
+    }
 }

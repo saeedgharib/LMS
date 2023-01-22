@@ -8,8 +8,11 @@ package model.dto;
  *
  * @author Mansoor
  */
-public class User {
-    public String username;
-    public String password;
-    public String type;
+public class StatsDTO {
+    
+    public int TotalUsers;
+    public String SOM;
+    public int TotalStudents;
+    public int TotalTeachers;
+    public int TotalQuiz;
 }

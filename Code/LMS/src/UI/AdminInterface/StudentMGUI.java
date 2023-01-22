@@ -84,6 +84,7 @@ LMSController objController;
         searchEmployee.setForeground(new java.awt.Color(255, 255, 255));
         jPanel1.add(searchEmployee, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 150, 200, -1));
 
+        jButton2.setBackground(new java.awt.Color(0,0,0,90));
         jButton2.setText("Search");
         jButton2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -112,9 +113,9 @@ LMSController objController;
                 jButton1ActionPerformed(evt);
             }
         });
-        jPanel1.add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(700, 360, -1, -1));
+        jPanel1.add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(470, 470, -1, 30));
 
-        jTable1.setBackground(new java.awt.Color(0, 0, 0,90));
+        jTable1.setBackground(new java.awt.Color(250, 204, 50,10));
         jTable1.setForeground(new java.awt.Color(255, 255, 255));
         jTable1.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -143,19 +144,23 @@ LMSController objController;
 
         jPanel1.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 190, 631, 267));
 
-        jButton4.setBackground(new java.awt.Color(255, 51, 51));
-        jButton4.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
-        jButton4.setForeground(new java.awt.Color(255, 255, 255));
+        jButton4.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        jButton4.setForeground(new java.awt.Color(255, 51, 51));
         jButton4.setText("Delete");
         jButton4.setToolTipText("Delete  Student");
         jButton4.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED, null, new java.awt.Color(255, 255, 255), new java.awt.Color(153, 153, 153), new java.awt.Color(255, 255, 255)));
         jButton4.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        jButton4.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                jButton4MouseEntered(evt);
+            }
+        });
         jButton4.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton4ActionPerformed(evt);
             }
         });
-        jPanel1.add(jButton4, new org.netbeans.lib.awtextra.AbsoluteConstraints(700, 410, 149, 36));
+        jPanel1.add(jButton4, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 470, 149, 36));
 
         jButton3.setText("Update");
         jButton3.addActionListener(new java.awt.event.ActionListener() {
@@ -163,7 +168,7 @@ LMSController objController;
                 jButton3ActionPerformed(evt);
             }
         });
-        jPanel1.add(jButton3, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 470, -1, 31));
+        jPanel1.add(jButton3, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 470, -1, 31));
 
         jButton5.setText("Back");
         jButton5.addActionListener(new java.awt.event.ActionListener() {
@@ -176,7 +181,7 @@ LMSController objController;
         jLabel1.setText("jLabel1");
         jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 540, 930, 40));
 
-        jLabel3.setIcon(new javax.swing.ImageIcon("D:\\Users\\Mansoor\\Downloads\\blue.jpg")); // NOI18N
+        jLabel3.setIcon(new javax.swing.ImageIcon("C:\\OOSE PROJECT\\LMS\\Code\\LMS\\src\\UI\\Commmon\\Asset 2@3x.png")); // NOI18N
         jLabel3.setPreferredSize(new java.awt.Dimension(1000, 720));
         jPanel1.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(-150, -130, 1140, 810));
 
@@ -210,7 +215,9 @@ LMSController objController;
     private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
         String selectedId = getSelectedStudentId();
         if(selectedId != null){
-         JOptionPane.showMessageDialog(this, "Deleting record with "+ selectedId);
+            JOptionPane.showConfirmDialog(rootPane, "Are you sure you want to delete the record for "+selectedId, "Deleting Record",1 );
+            
+//         JOptionPane.showMessageDialog(this, "Deleting record with "+ selectedId);
          Response objResponse =  objController.deleteStudent(selectedId);
          CommonHandler.handleResponse(objResponse, jLabel1);
         }
@@ -237,6 +244,17 @@ LMSController objController;
         jButton1.setForeground(Color.green);
     }//GEN-LAST:event_jButton1MouseExited
 
+    private void jButton4MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton4MouseEntered
+        // TODO add your handling code here:
+        jButton4.setBackground(Color.red);
+        jButton4.setForeground(Color.white);
+    }//GEN-LAST:event_jButton4MouseEntered
+
+    private void jButton4MouseExited(java.awt.event.MouseEvent evt) {                                      
+        // TODO add your handling code here:
+        jButton4.setForeground(Color.red);
+        jButton4.setBackground(Color.white);
+    } 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jButton1;

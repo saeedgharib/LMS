@@ -6,14 +6,15 @@ package dal;
 
 import UI.AdminInterface.StudentMod;
 import UI.Commmon.Login;
-import UI.LMSA;
+import UI.TeacherInterface.LMSA;
+
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.SQLException;
 import model.dto.Message;
 import model.dto.MessageType;
 import model.dto.Response;
-import model.dto.User;
+import model.dto.UserState;
 import java.sql.ResultSet;
 import javax.swing.JOptionPane;
 import model.LMSFactory;
@@ -23,7 +24,7 @@ import model.LMSFactory;
  */
 public class Verifyer {
 
-    void Verify(User objUser, Response objResponse, Connection dbConnection) {
+    void Verify(UserState objUser, Response objResponse, Connection dbConnection) {
         
                try{
                    try (dbConnection) {
@@ -35,6 +36,10 @@ public class Verifyer {
                                p.setString(2, objUser.password);
                                ResultSet rs =p.executeQuery();
                                if(rs.next()){
+                                   p = dbConnection.prepareStatement("update Teacher set status=? where Username=?");
+                                   p.setString(1,"online");
+                                   p.setString(2,objUser.username);
+                                   p.executeUpdate();
                                    LMSA ob =new LMSA();
                                    ob.setVisible(true);  
                                }
@@ -67,7 +72,10 @@ public class Verifyer {
                                p.setString(2, objUser.password);
                                ResultSet rs =p.executeQuery();
                                if(rs.next()){
-                                   JOptionPane.showMessageDialog(null, "Screens not added yet");
+                                   p = dbConnection.prepareStatement("update Student set status=? where Username=?");
+                                   p.setString(1,"online");
+                                   p.setString(2,objUser.username);
+                                   p.executeQuery();
                                }
                                else{
                                    Message msg =LMSFactory.getInstanceOfMessage();

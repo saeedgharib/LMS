@@ -11,8 +11,9 @@ import model.dto.Assignments;
 import model.dto.ContentDTO;
 import model.dto.StudentDTO;
 import model.dto.Response;
+import model.dto.StatsDTO;
 import model.dto.TeacherDTO;
-import model.dto.User;
+import model.dto.UserState;
 import model.validators.CommonValidator;
 
 /**
@@ -28,6 +29,12 @@ public class LMSController {
     public ArrayList<StudentDTO> viewStudents(String searchKey) {
         return objDAL.getStudentsList(searchKey);
     }
+public ArrayList<StatsDTO> getStats() {
+        return objDAL.getStats();
+    }
+public ArrayList<StatsDTO> getQuizStats() {
+        return objDAL.getQuizStats();
+    }
 
     public Response addStudent(StudentDTO objStudent) {
         Response objResponse = LMSFactory.getResponseInstance();
@@ -38,6 +45,7 @@ public class LMSController {
         return objResponse;
     }
 
+    
    
     public Response addAssignment(Assignments objA) {
         Response objResponse = LMSFactory.getResponseInstance();
@@ -62,7 +70,7 @@ public class LMSController {
         return objResponse;
     }
     
-    public Response Authenticate(User objUser) {
+    public Response Authenticate(UserState objUser) {
         Response objResponse = LMSFactory.getResponseInstance();
         CommonValidator.validateUser(objUser,objResponse);
         if(objResponse.isSuccessfull()){
@@ -87,6 +95,15 @@ public class LMSController {
        if(objResponse.isSuccessfull()){
             objDAL.saveContent(obj,objResponse);
         }
+        return objResponse;
+    }
+    
+    public Response Search(StudentDTO obj) {
+     
+        
+       Response objResponse = LMSFactory.getResponseInstance();
+        CommonValidator.validateStudent(obj,objResponse);        
+            objDAL.Search(obj,objResponse);        
         return objResponse;
     }
     

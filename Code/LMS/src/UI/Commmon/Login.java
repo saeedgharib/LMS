@@ -1,11 +1,11 @@
 package UI.Commmon;
 
-import UI.AdminInterface.Dashboarda;
+
 import UI.AdminInterface.StudentMod;
 import UI.AdminInterface.StudentMod;
 import UI.Commmon.Register;
-import UI.DBoard;
-import UI.LMSA;
+
+
 import java.awt.Color;
 import java.sql.Connection;
 import java.sql.DriverManager;
@@ -14,7 +14,7 @@ import javax.swing.JOptionPane;
 import model.LMSController;
 import model.LMSFactory;
 import model.dto.Response;
-import model.dto.User;
+import model.dto.UserState;
 
 
 /*
@@ -217,7 +217,7 @@ Connection con1=null;
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
        
-      User objUser = new User();
+      UserState objUser = new UserState();
         objUser.username = usernameField.getText();
         objUser.password = passwordField.getText();
         objUser.type = jComboBox1.getSelectedItem().toString();
@@ -226,6 +226,7 @@ Connection con1=null;
         
         Response objResponse = objController.Authenticate(objUser);
         CommonHandler.handleResponse(objResponse,jLabel6);
+  
         if(!objResponse.hasError()){
             this.setVisible(false);
         }

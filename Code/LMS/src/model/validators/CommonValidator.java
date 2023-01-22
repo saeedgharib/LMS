@@ -11,7 +11,7 @@ import UI.Commmon.Login;
 import model.dto.Assignments;
 import model.dto.ContentDTO;
 import model.dto.TeacherDTO;
-import model.dto.User;
+import model.dto.UserState;
 
 /**
  *
@@ -31,28 +31,28 @@ public class CommonValidator {
             
             
         }
-        if(objStudent.LastName == null ){
-        
-            Message msg =LMSFactory.getInstanceOfMessage();
-            msg.Message="\"Last Name is not valid, Provide valid first name with at least 3 characters.\"";
-            msg.Type=MessageType.Error;
-            objResponse.messagesList.add(msg);
-        }
-       if(objStudent.Password == null || objStudent.Password.length()<8){
-            
-            Message msg =LMSFactory.getInstanceOfMessage();
-            msg.Message="\"Password should be 8 characters long.\"";
-            msg.Type=MessageType.Error;
-            objResponse.messagesList.add(msg);
-        }
-       if(objStudent.Username == null ){
-           
-            
-            Message msg =LMSFactory.getInstanceOfMessage();
-            msg.Message="\"Please provide valid valid Username .\"";
-            msg.Type=MessageType.Error;
-            objResponse.messagesList.add(msg);
-        }
+//        if(objStudent.LastName == null ){
+//        
+//            Message msg =LMSFactory.getInstanceOfMessage();
+//            msg.Message="\"Last Name is not valid, Provide valid first name with at least 3 characters.\"";
+//            msg.Type=MessageType.Error;
+//            objResponse.messagesList.add(msg);
+//        }
+//       if(objStudent.Password == null || objStudent.Password.length()<8){
+//            
+//            Message msg =LMSFactory.getInstanceOfMessage();
+//            msg.Message="\"Password should be 8 characters long.\"";
+//            msg.Type=MessageType.Error;
+//            objResponse.messagesList.add(msg);
+//        }
+//       if(objStudent.Username == null ){
+//           
+//            
+//            Message msg =LMSFactory.getInstanceOfMessage();
+//            msg.Message="\"Please provide valid valid Username .\"";
+//            msg.Type=MessageType.Error;
+//            objResponse.messagesList.add(msg);
+//        }
         
     }
     
@@ -95,7 +95,7 @@ public class CommonValidator {
 //    }
 //
         
-    public static void validateUser(User objUser, Response objResponse) {
+    public static void validateUser(UserState objUser, Response objResponse) {
         if(objUser.username==null || objUser.password==null){
             Message msg =LMSFactory.getInstanceOfMessage();
             msg.Message="Username or Password cannot be null";
@@ -117,7 +117,7 @@ public class CommonValidator {
             //objResponse.messagesList.add(new Message("FIrst Name is not valid, Provide valid first name with at least 3 characters.",MessageType.Error));
                 
             Message msg =LMSFactory.getInstanceOfMessage();
-            msg.Message="\"FIrst Name is not valid, Provide valid first name with at least 3 characters.\"";
+            msg.Message="\"Provide valid URL\"";
             msg.Type=MessageType.Error;
             objResponse.messagesList.add(msg);
         }}

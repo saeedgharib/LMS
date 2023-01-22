@@ -9,6 +9,7 @@ import java.sql.Connection;
 import java.sql.Date;
 import java.sql.PreparedStatement;
 import java.sql.SQLException;
+import model.LMSFactory;
 import model.dto.Assignments;
 import model.dto.ContentDTO;
 import model.dto.StudentDTO;
@@ -35,9 +36,10 @@ public class RecordsAdder {
             int rowsInserted = p.executeUpdate();
           
             if(rowsInserted > 0){
-                objResponse.messagesList.add(new Message("Student added successfully.", MessageType.Information));
-                
-             
+                Message msg =LMSFactory.getInstanceOfMessage();
+            msg.Message="\"Student added successfully.\"";
+            msg.Type=MessageType.Information;
+                objResponse.messagesList.add(msg);
                 
                 
             }
@@ -58,7 +60,12 @@ public class RecordsAdder {
             int rowsInserted = p.executeUpdate();
           
             if(rowsInserted > 0){
-                objResponse.messagesList.add(new Message("Teacher Registered successfully.", MessageType.Information));
+                
+                Message msg =LMSFactory.getInstanceOfMessage();
+            msg.Message="Teacher Registered successfully.";
+            msg.Type=MessageType.Information;
+                objResponse.messagesList.add(msg);
+                
                 
              
                 
@@ -97,17 +104,14 @@ public class RecordsAdder {
         
         try{
             PreparedStatement p = dbConnection.prepareStatement("INSERT INTO Content(Content_ID,Course_ID,pdf_lecture_description) VALUES (?,?,?);");
-            p.setInt(1, 17);
+            p.setInt(1, 12);
             p.setInt(2,10);
             p.setString(3, obj.Description);
             int rowsInserted = p.executeUpdate();
           
             if(rowsInserted > 0){
                 objResponse.messagesList.add(new Message("Content uploaded successfully.", MessageType.Information));
-                
-             
-                
-                
+      
             }
         }catch(SQLException e){
             objResponse.messagesList.add(new Message("Ooops! Failed to add Task.", MessageType.Error));
